@@ -1,19 +1,48 @@
 void setup()
 {
-	size(500, 500);
+	size(400, 450);
 	noLoop();
 }
 void draw()
 {
-	background(190);
-	for (int y = 50;y < 450; y = y + 55) 
+	background(0);
+	int diceTotal = 0;
+	for (int y = 30;y < 350; y = y + 55) 
 	{	
-		for (int x = 50; x < 450; x = x + 55) 
+		for (int x = 35; x < 350; x = x + 55) 
 		{
 			Die theDice = new Die(x,y);
 			theDice.show();
+			if (theDice.value == 1) 
+			{
+				diceTotal = diceTotal + 1;
+			}
+			if (theDice.value == 2) 
+			{
+				diceTotal = diceTotal + 2;
+			}
+			if (theDice.value == 3) 
+			{
+				diceTotal = diceTotal + 3;
+			}
+			if (theDice.value == 4) 
+			{
+				diceTotal = diceTotal + 4;
+			}
+			if (theDice.value == 5) 
+			{
+				diceTotal = diceTotal + 5;
+			}
+			if (theDice.value == 6) 
+			{
+				diceTotal = diceTotal + 6;
+			}
 		}
 	}
+	textSize(30);
+	fill(255);
+	text("Total:" + diceTotal  , 35, 400);
+	System.out.println(diceTotal);
 }
 void mousePressed()
 {
@@ -34,7 +63,7 @@ class Die
 	}
 	void show()
 	{
-		noStroke();
+		stroke(0);
 		fill(255);
 		rect(myX, myY, 50, 50);
 		fill(0);
