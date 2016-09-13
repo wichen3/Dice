@@ -84,7 +84,6 @@ void draw()
     eye();
     fill(0,180,0);
     text("YOU WIN!!!", 250, 400);
-    noLoop();
   }
   textSize(30);
   fill(255);
