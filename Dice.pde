@@ -3,6 +3,8 @@ void setup()
   size(500, 500);
   noLoop();
 }
+
+// THE DUCK I DREW FOR WIN SCREEN
 void duckbody()
 {
   stroke(0, 0, 0);
@@ -38,13 +40,15 @@ void bill()
   fill(255, 150, 0);
   ellipse(180, 135, 80, 40);
 }
+
 void draw()
 {
+  // CALCULATING TOTAL AND NEST LOOP FOR DICE}
   background(0);
   int diceTotal = 0;
   for (int y = 30;y < 350; y = y + 55) 
   { 
-    for (int x = 75; x < 375; x = x + 55) 
+    for (int x = 85; x < 375; x = x + 55) 
     {
       Die theDice = new Die(x,y);
       theDice.show();
@@ -74,6 +78,10 @@ void draw()
       }
     }
   }
+  fill(255);
+  textSize(30);
+  text("ROLL OVER 145 TO WIN!", 75, 450 );
+  // WIN SCREEN
   if (diceTotal > 145) 
   {
     background(192);
@@ -85,15 +93,19 @@ void draw()
     fill(0,180,0);
     text("YOU WIN!!!", 250, 400);
   }
+  // SHOWING TOTAL
   textSize(30);
   fill(255);
-  text("Total:" + diceTotal  , 75, 400);
+  text("Total:" + diceTotal  , 85, 400);
   System.out.println(diceTotal);
 }
+// MAKES IT SO EVERYTIME YOU CLICK YOU REROLL
 void mousePressed()
 {
   redraw();
 }
+
+// DICE CLASS
 class Die
 {
   int myX, myY, value;
@@ -103,10 +115,12 @@ class Die
     myX = x;
     myY = y;
   }
+  // ROLL METHOD
   void roll()
   {
     value = (int)(Math.random() * 6) + 1;
   }
+  // DRAWING EACH ROLL
   void show()
   {
     stroke(0);
